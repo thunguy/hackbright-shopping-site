@@ -6,7 +6,7 @@ put melons in a shopping cart.
 Authors: Joel Burton, Christian Fernandez, Meggie Mahnken, Katie Byers.
 """
 
-from flask import Flask, render_template, redirect, flash
+from flask import Flask, render_template, redirect, flash, session
 import jinja2
 
 import melons
@@ -24,12 +24,15 @@ app.jinja_env.undefined = jinja2.StrictUndefined
 
 # This configuration option makes the Flask interactive debugger
 # more useful (you should remove this line in production though)
-app.config['PRESERVE_CONTEXT_ON_EXCEPTION'] = True
+# app.config['PRESERVE_CONTEXT_ON_EXCEPTION'] = True
 
 
 @app.route("/")
 def index():
     """Return homepage."""
+
+    # session['username'] = 'abc'
+    # print(session)
 
     return render_template("homepage.html")
 
