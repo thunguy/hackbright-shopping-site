@@ -75,11 +75,8 @@ def show_shopping_cart():
 
         melon_cart_list.append(melon)
 
-
-    print("THIS IS MY SESSION:", session["cart"])
-
     return render_template("cart.html",
-                           melon_list=melon_cart_list,
+                           melon_cart_list=melon_cart_list,
                            order_total=order_total)
 
 
