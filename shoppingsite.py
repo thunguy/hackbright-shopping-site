@@ -65,7 +65,10 @@ def show_shopping_cart():
     order_total = 0
     melon_cart_list = []
     
-    for melon_id, qty in session["cart"].items():
+    # get cart dict out of the session or create empty one if none exists yet
+    cart = session.get("cart", {})
+    
+    for melon_id, qty in cart.items():
         melon = melons.get_by_id(melon_id)
         item_total = melon.price * qty
         order_total += item_total 
